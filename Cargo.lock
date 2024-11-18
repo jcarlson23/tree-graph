@@ -147,6 +147,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 
 [[package]]
+name = "streaming-iterator"
+version = "0.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2b2231b7c3057d5e4ad0156fb3dc807d900806020c5ffa3ee6ff2c8c76fb8520"
+
+[[package]]
 name = "syn"
 version = "2.0.70"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -159,13 +165,13 @@ dependencies = [
 
 [[package]]
 name = "tree-graph"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "bincode",
  "fixedbitset",
  "petgraph",
  "serde",
- "tree-sitter 0.23.2",
+ "tree-sitter 0.24.4",
  "tree-sitter-cpp",
  "tree-sitter-fortran",
  "tree-sitter-traversal",
@@ -183,32 +189,35 @@ dependencies = [
 
 [[package]]
 name = "tree-sitter"
-version = "0.23.2"
+version = "0.24.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0203df02a3b6dd63575cc1d6e609edc2181c9a11867a271b25cfd2abff3ec5ca"
+checksum = "b67baf55e7e1b6806063b1e51041069c90afff16afcbbccd278d899f9d84bca4"
 dependencies = [
  "cc",
  "regex",
  "regex-syntax",
+ "streaming-iterator",
  "tree-sitter-language",
 ]
 
 [[package]]
 name = "tree-sitter-cpp"
-version = "0.22.2"
+version = "0.23.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "537b7e0f0d8c89b8dd6f4d195814da94832f20720c09016c2a3ac3dc3c437993"
+checksum = "df2196ea9d47b4ab4a31b9297eaa5a5d19a0b121dceb9f118f6790ad0ab94743"
 dependencies = [
  "cc",
- "tree-sitter 0.23.2",
+ "tree-sitter-language",
 ]
 
 [[package]]
 name = "tree-sitter-fortran"
-version = "0.0.1"
+version = "0.2.0"
+source = "git+https://github.com/jcarlson23/tree-sitter-fortran.git#bb50d261f8a6177ce577147a068349dc1a42b982"
 dependencies = [
  "cc",
- "tree-sitter 0.23.2",
+ "tree-sitter 0.24.4",
+ "tree-sitter-language",
 ]
 
 [[package]]

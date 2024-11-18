@@ -18,7 +18,6 @@ mod tests;
 // Informational features to dump AST Graph to a DOT file for debugging
 #[cfg(feature="informational")]
 use petgraph::dot::{Dot, Config};
-use std::io::Write;
 
 ///
 /// Serializable graph -- as PetGraph doesn't provide a direct means
