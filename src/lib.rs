@@ -132,6 +132,15 @@ impl ASTGraph {
         subgraphs
     }
 
+    ///
+    /// Extract subgraph from a new root
+    /// 
+    pub fn extract_subgraph_from(&self, new_root:NodeIndex) -> ASTGraph {
+        let subgraph_nodes = self.collect_subgraph_nodes(new_root);
+        let subraph = self.create_subgraph(&subgraph_nodes);
+        subraph
+    }
+
     fn collect_subgraph_nodes(&self, start_node: NodeIndex) -> HashSet<NodeIndex> {
         let mut visited = HashSet::new();
         let mut bfs = Bfs::new(&self.graph, start_node);
