@@ -32,6 +32,7 @@ pub struct SerializableGraph {
 ///
 /// AST Graph
 /// 
+#[derive(Debug,Clone)]
 pub struct ASTGraph {
     pub graph: DiGraph<GNode,()>,
     node_map: HashMap<NodeIndex,usize>,
@@ -138,6 +139,7 @@ impl ASTGraph {
     pub fn extract_subgraph_from(&self, new_root:NodeIndex) -> ASTGraph {
         let subgraph_nodes = self.collect_subgraph_nodes(new_root);
         let subraph = self.create_subgraph(&subgraph_nodes);
+        
         subraph
     }
 
@@ -175,7 +177,7 @@ impl ASTGraph {
         let subgraph = ASTGraph {
             graph: digraph,
             node_map: original_mapping,
-            source: "".to_string(),
+            source: self.source.clone(),
             title: "".to_string()
         };
 
